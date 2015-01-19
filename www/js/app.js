@@ -71,6 +71,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/matchings');
+  $urlRouterProvider.otherwise('/tab/selection');
 
 });
