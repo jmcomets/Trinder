@@ -1,4 +1,17 @@
 <ion-view title="Trinder">
-  <ion-content class="padding">
+  <ion-content>
+    <div class="list">
+      <div ng-repeat="suggestion in suggestions" class="item item-button-right">
+        {{ suggestion }}
+        <div class="buttons">
+          <button class="button button-positive" ui-sref="tab.conversation({ locutor: suggestion })">
+            <i class="icon ion-chatboxes"></i>
+          </button>
+          <button class="button button-assertive">
+            <i class="icon ion-android-locate"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

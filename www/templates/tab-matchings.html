@@ -1,4 +1,17 @@
 <ion-view title="Trinder">
   <ion-content>
+    <div class="list">
+      <div ng-repeat="match in matchings" class="item item-button-right">
+        {{ match }}
+        <div class="buttons">
+          <button class="button button-positive" ui-sref="tab.conversation({ locutor: match })">
+            <i class="icon ion-chatboxes"></i>
+          </button>
+          <button class="button button-assertive">
+            <i class="icon ion-close-round"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

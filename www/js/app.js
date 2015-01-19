@@ -50,6 +50,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
       }
     })
 
+    .state('tab.conversation', {
+      url: '/conversation/:locutor',
+      views: {
+        'conversation': {
+          templateUrl: 'templates/conversation.html',
+          controller: 'ConversationCtrl'
+        }
+      }
+    })
+
     .state('tab.discover', {
       url: '/discover',
       views: {
