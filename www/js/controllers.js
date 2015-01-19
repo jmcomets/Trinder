@@ -12,4 +12,11 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+})
+
+.controller('TodoCtrl', function($scope) {
+	$scope.todos = [];
+	$scope.addTodo = function(message) {
+		$scope.todos.push(message);
+	};
 });
