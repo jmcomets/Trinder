@@ -16,9 +16,15 @@ angular.module('app.controllers', [])
     $scope.selected = (function random_choice(list) {
       return list[Math.floor(Math.random()*list.length)];
     }) ($scope.trees);
+  };
 
-    console.log($scope.selected);
-    $scope.selected.image = '100.jpg';
+  $scope.image = function(tree) {
+    if (!tree) { return; }
+    var urlComponents = tree.genre.split('/');
+    if (tree.genre[tree.genre.length - 1] == '/') {
+      urlComponents.splice(-1, 1); // remove last element (trailing slash)
+    }
+    return '/img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
   };
 })
 
