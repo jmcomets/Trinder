@@ -11,7 +11,7 @@ angular.module('app.controllers', [])
 
   $scope.select = function() {
     if (!$scope.trees.length) { return; }
-
+    
     // Pick random tree for selection
     $scope.selected = (function random_choice(list) {
       return list[Math.floor(Math.random()*list.length)];
@@ -25,6 +25,13 @@ angular.module('app.controllers', [])
       urlComponents.splice(-1, 1); // remove last element (trailing slash)
     }
     return '/img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
+  };
+
+  $scope.reportEvent = function() {
+    console.log('ARGRARJGHH');
+    $scope.$apply(function() {
+      $scope.select();
+    });
   };
 })
 
