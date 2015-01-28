@@ -13,7 +13,7 @@ angular.module('app.directives', [])
         //  $ionicGesture.on('swiperight', scope.reportEvent, elem);
           break;
         case 'swipeleft':
-          $ionicGesture.on('swipeleft', scope.reportEvent, elem);
+          $ionicGesture.on('swipeleft', scope.matchTree, elem);
           break;
       }
 

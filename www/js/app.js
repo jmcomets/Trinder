@@ -1,6 +1,6 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, Matches) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -11,6 +11,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    
+    Matches.init();
   });
 })
 

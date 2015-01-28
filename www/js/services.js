@@ -53,4 +53,25 @@ angular.module('app.services', [])
   return self;
 })
 
+.service('Matches', function($q) {
+  //window.localStorage['post'] = JSON.stringify(post);
+  var service = {};
+
+  service.init = function() {
+    this.matches = JSON.parse(window.localStorage['matches'] || '[]');
+  };
+
+  service.add = function(tree) {
+    this.matches.push(tree);
+    window.localStorage['matches'] = JSON.stringify(this.matches);
+  };
+
+  service.remove = function(index) {
+    this.matches.splice(index, 1);
+    window.localStorage['matches'] = JSON.stringify(this.matches);
+  };
+
+  return service;
+})
+
 ;

@@ -2,12 +2,12 @@
   <ion-content>
     <div class="list">
       <div ng-repeat="match in matchings" class="item item-button-right">
-        {{ match }}
+        {{ match.name }}
         <div class="buttons">
           <button class="button button-positive" ui-sref="tab.conversation({ locutor: match })">
             <i class="icon ion-chatboxes"></i>
           </button>
-          <button class="button button-assertive">
+          <button class="button button-assertive" ng-click="remove($index)">
             <i class="icon ion-close-round"></i>
           </button>
         </div>

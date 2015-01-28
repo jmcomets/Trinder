@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('SelectionCtrl', function($scope, Trees, $ionicLoading) {
+.controller('SelectionCtrl', function($scope, Trees, $ionicLoading, Matches) {
   $ionicLoading.show({ template: 'loading' });
 
   Trees.getTrees().then(function(trees) {
@@ -11,7 +11,7 @@ angular.module('app.controllers', [])
 
   $scope.select = function() {
     if (!$scope.trees.length) { return; }
-    
+
     // Pick random tree for selection
     $scope.selected = (function random_choice(list) {
       return list[Math.floor(Math.random()*list.length)];
@@ -27,20 +27,21 @@ angular.module('app.controllers', [])
     return '/img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
   };
 
-  $scope.reportEvent = function() {
-    console.log('ARGRARJGHH');
+  $scope.matchTree = function() {
+    Matches.add($scope.selected);
+
     $scope.$apply(function() {
       $scope.select();
     });
   };
 })
 
-.controller('MatchingsCtrl', function($scope) {
-  $scope.matchings = [
-    'Foobar',
-    'Barboo',
-    'Bazbaz',
-  ];
+.controller('MatchingsCtrl', function($scope, Matches) {
+  $scope.matchings = Matches.matches;
+
+  $scope.remove = function(index) {
+    Matches.remove(index);
+  };
 })
 
 .controller('DiscoverCtrl', function($scope) {
