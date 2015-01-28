@@ -1,6 +1,6 @@
-angular.module('app', ['ionic', 'app.config', 'app.controllers', 'app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services'])
 
-.run(function($ionicPlatform, DB) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -12,9 +12,6 @@ angular.module('app', ['ionic', 'app.config', 'app.controllers', 'app.services']
       StatusBar.styleDefault();
     }
   });
-
-  // Initialize database
-  DB.init();
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
