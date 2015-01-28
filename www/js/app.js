@@ -1,18 +1,20 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform, Matches) {
+.constant('ASSET_URL', 'file:///android_asset/www/')
+// .constant('ASSET_URL', '/')
+
+.run(function($ionicPlatform, Matches, Trees) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
     
+    // Initalize matches database
     Matches.init();
+
+    // Initialize tree database
+    Trees.init();
   });
 })
 
@@ -74,5 +76,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/selection');
+})
 
-});
+;

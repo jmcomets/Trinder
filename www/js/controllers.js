@@ -1,13 +1,7 @@
 angular.module('app.controllers', [])
 
-.controller('SelectionCtrl', function($scope, Trees, $ionicLoading, Matches) {
-  $ionicLoading.show({ template: 'loading' });
-
-  Trees.getTrees().then(function(trees) {
-    $ionicLoading.hide();
-    $scope.trees = trees;
-    $scope.select();
-  });
+.controller('SelectionCtrl', function($scope, $ionicLoading, Trees, Matches, ASSET_URL) {
+  $scope.trees = Trees.trees;
 
   $scope.select = function() {
     if (!$scope.trees.length) { return; }
@@ -17,6 +11,8 @@ angular.module('app.controllers', [])
       return list[Math.floor(Math.random()*list.length)];
     }) ($scope.trees);
   };
+  // fire selection immediately
+  $scope.select();
 
   $scope.image = function(tree) {
     if (!tree) { return; }
@@ -24,7 +20,7 @@ angular.module('app.controllers', [])
     if (tree.genre[tree.genre.length - 1] == '/') {
       urlComponents.splice(-1, 1); // remove last element (trailing slash)
     }
-    return '/img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
+    return ASSET_URL + 'img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
   };
 
   $scope.matchTree = function() {
