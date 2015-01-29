@@ -22,11 +22,7 @@ angular.module('app.controllers', [])
 
   $scope.image = function(tree) {
     if (!tree) { return; }
-    var urlComponents = tree.genre.split('/');
-    if (tree.genre[tree.genre.length - 1] == '/') {
-      urlComponents.splice(-1, 1); // remove last element (trailing slash)
-    }
-    return ASSET_URL + 'img/trees/' + urlComponents[urlComponents.length - 1] + '.jpg';
+    return ASSET_URL + 'img/trees/' + tree.image;
   };
 
   $scope.matchTree = function() {

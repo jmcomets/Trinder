@@ -3,7 +3,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
 //.constant('ASSET_URL', 'file:///android_asset/www/')
 .constant('ASSET_URL', '/')
 
-.run(function($ionicPlatform, Matches, Trees) {
+.run(function($ionicPlatform, $ionicLoading, Matches, Trees) {
   $ionicPlatform.ready(function() {
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -14,7 +14,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
     Matches.init();
 
     // Initialize tree database
-    Trees.init();
+    $ionicLoading.show({ template: 'loading trees' });
+    Trees.init().finally(function() {
+      $ionicLoading.hide();
+    });
   });
 })
 
