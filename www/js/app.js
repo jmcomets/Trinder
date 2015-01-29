@@ -1,7 +1,7 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directives'])
 
-.constant('ASSET_URL', 'file:///android_asset/www/')
-// .constant('ASSET_URL', '/')
+//.constant('ASSET_URL', 'file:///android_asset/www/')
+.constant('ASSET_URL', '/')
 
 .run(function($ionicPlatform, Matches, Trees) {
   $ionicPlatform.ready(function() {
@@ -9,7 +9,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    
+
     // Initalize matches database
     Matches.init();
 
