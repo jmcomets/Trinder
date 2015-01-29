@@ -30,6 +30,12 @@ angular.module('app.controllers', [])
       $scope.select();
     });
   };
+
+  $scope.noMatchTree = function() {
+    $scope.$apply(function() {
+      $scope.select();
+    });
+  };
 })
 
 .controller('MatchingsCtrl', function($scope, Matches) {
