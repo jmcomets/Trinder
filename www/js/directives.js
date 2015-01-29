@@ -36,7 +36,6 @@ var mod = angular.module('app.directives', [])
       angular.forEach(eventMap, function(evtAttr, evt) {
         var callback = attrs[evtAttr];
         if (callback) {
-          console.log('hooking up ' + evt + ' with ' + evtAttr, $parse(callback));
           $ionicGesture.on(evt, function() {
             scope.$eval(callback);
           }, elem);

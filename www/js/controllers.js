@@ -1,15 +1,21 @@
 angular.module('app.controllers', [])
 
-.controller('SelectionCtrl', function($scope, $ionicLoading, Trees, Matches, ASSET_URL) {
+.controller('SelectionCtrl', function($scope, $filter, $ionicLoading, Trees, Matches, ASSET_URL) {
   $scope.trees = Trees.trees;
+  $scope.matches = Matches.matches;
 
   $scope.select = function() {
-    if (!$scope.trees.length) { return; }
+    // Build source array from `trees - matches`
+    var source = $scope.trees.slice(0).filter(function(tree) {
+      return $scope.matches.indexOf(tree) == -1;
+    });
+
+    if (!source.length) { return; }
 
     // Pick random tree for selection
     $scope.selected = (function random_choice(list) {
       return list[Math.floor(Math.random()*list.length)];
-    }) ($scope.trees);
+    }) (source);
   };
   // fire selection immediately
   $scope.select();

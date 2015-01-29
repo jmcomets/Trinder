@@ -11,7 +11,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
     }
 
     // Initalize matches database
-    console.log('init');
     Matches.init();
 
     // Initialize tree database
