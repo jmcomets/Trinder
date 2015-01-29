@@ -4,7 +4,7 @@
       <div ng-repeat="match in matchings" class="item item-button-right">
         {{ match.name }}
         <div class="buttons">
-          <button class="button button-positive" ui-sref="tab.conversation({ locutor: match })">
+          <button class="button button-positive" ui-sref="tab.conversation({ matchId: match.id })">
             <i class="icon ion-chatboxes"></i>
           </button>
           <button class="button button-assertive" ng-click="remove($index)">

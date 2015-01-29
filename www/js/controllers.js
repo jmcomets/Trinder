@@ -49,14 +49,9 @@ angular.module('app.controllers', [])
 })
 
 .controller('DiscoverCtrl', function($scope) {
-  $scope.suggestions = [
-    'Foobar',
-    'Barboo',
-    'Bazbaz',
-  ];
 })
 
-.controller('ConversationCtrl', function($scopee, $state, $stateParams) {
+.controller('ConversationCtrl', function($scope, $state, $stateParams) {
   $scope.state = $state.current;
   $scope.params = $stateParams;
 

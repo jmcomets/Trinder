@@ -58,9 +58,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
     })
 
     .state('tab.conversation', {
-      url: '/conversation/:locutor',
+      url: '/matchings/:matchId/conversation',
       views: {
-        'conversation': {
+        'tab-matchings': {
           templateUrl: 'templates/conversation.html',
           controller: 'ConversationCtrl'
         }
